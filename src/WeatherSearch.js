@@ -4,14 +4,16 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./WeatherSearch.css";
 
 export default function WeatherSearch() {
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState("City");
   const [loaded, setLoaded] = useState(false);
   const [temperature, setTemperature] = useState({});
 
   function ShowWeather(response) {
     setLoaded(true);
+    console.log(response);
     setTemperature({
       City: city,
+      conditions: response.data.weather[0].description,
       temperature: Math.round(response.data.main.temp),
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
@@ -51,21 +53,26 @@ export default function WeatherSearch() {
             </div>
           </form>
 
-          <h1>{city}</h1>
+          <h1 className="text-capitalize d-flex justify-content-start">
+            {city}
+          </h1>
           <ul>
-            <li>
-              Last updated: <span id="date"></span>
+            <li className="d-flex justify-content-start">
+              Last updated: today
             </li>
-            <li id="conditions"></li>
+            <li className="d-flex justify-content-start">
+              {temperature.conditions}
+            </li>
           </ul>
           <div className="row">
             <div className="col-6">
               <div className="d-flex justify-content-start">
                 <div>
-                  <li>
-                    <img src={temperature.icon} alt={temperature.description} />
-                  </li>
-                  <li>{Math.round(temperature.temperature)}°C</li>
+                  <img src={temperature.icon} alt={temperature.description} />
+                  <span className="temperature">
+                    {Math.round(temperature.temperature)}
+                  </span>
+                  <span className="unit">°C</span>
                 </div>
               </div>
             </div>
@@ -75,11 +82,10 @@ export default function WeatherSearch() {
                 <li>Wind: {temperature.wind} km/h</li>
               </ul>
             </div>
-            <div className="forecast"></div>
           </div>
         </div>
         <small>
-          <a href="https://github.com/LuciaTilnakova/weather-app-live">
+          <a href="https://github.com/LuciaTilnakova/weather-react-app">
             Open source
           </a>
           , by Lucia Tilnakova

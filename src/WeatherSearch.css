@@ -33,40 +33,19 @@ li {
   padding: 0;
 }
 
-.right-side {
-  padding-left: 60px;
-}
-
-#temperature {
+.temperature {
   padding-left: 15px;
   font-weight: 500;
   font-size: 50px;
 }
 
 .unit {
+  font-size: 16px;
+  color: #878787;
   position: relative;
   top: -23px;
 }
 
-a {
-  text-decoration: none;
-}
-
-.forecast {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.forecast-day {
-  font-size: 16px;
-  opacity: 0.5;
-}
-
-.forecast-min {
-  font-size: 14px;
-  opacity: 0.5;
-}
-
-.forecast-max {
-  font-size: 13px;
+.right-side {
+  padding-left: 60px;
 }
