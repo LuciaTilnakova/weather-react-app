@@ -75,7 +75,7 @@ export default function WeatherSearch() {
                 <li>Wind: {temperature.wind} km/h</li>
               </ul>
             </div>
-            <div className="forecast" id="forecast"></div>
+            <div className="forecast"></div>
           </div>
         </div>
         <small>
